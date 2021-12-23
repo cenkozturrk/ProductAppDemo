@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Interfaces\Repository\" />
     <Folder Include="Mapping\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProductApp.Domain\ProductApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
