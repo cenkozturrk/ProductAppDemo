@@ -1,8 +1,10 @@
-﻿using ProductApp.Application.Interfaces.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductApp.Application.Interfaces.Repository;
 using ProductApp.Domain.Common;
 using ProductApp.Persistance.ProductDbContext;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,24 +12,31 @@ namespace ProductApp.Persistance.Repositories
 {
     public class GenericRepository<T> : IGenericRepositoryAsync<T> where T: BaseEntity
     {
+        private readonly ApplicationDbContext dbContext;
 
         public GenericRepository(ApplicationDbContext dbContext)
         {
+            this.dbContext = dbContext;
+        }
+        public  async  Task<T> AddAsync(T entity)
+        {
+
+            await dbContext.Set<T>().AddAsync(entity);
+            await dbContext.SaveChangesAsync();
+            return entity;
 
         }
-        public Task<T> AddAsync(T entity)
+
+        public async Task<List<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+
+            return await dbContext.Set<T>().ToListAsync();            
+
         }
 
-        public Task<List<T>> GetAllAsync()
+        public async Task<T> GetByIdAsync(Guid Id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> GetByIdAsync(Guid Id)
-        {
-            throw new NotImplementedException();
+           return  await dbContext.Set<T>().FindAsync(Id);
         }
     }
 }
