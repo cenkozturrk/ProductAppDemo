@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApp.Persistance", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{9929CDF1-FCE8-4DE3-A9BD-F52BD88F01E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp.WebApi", "src\WebApi\ProductAppDemo.WebApi\ProductApp.WebApi.csproj", "{E08413F6-C9C0-4F47-B9EB-BA96347002D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApp.WebApi", "src\WebApi\ProductAppDemo.WebApi\ProductApp.WebApi.csproj", "{E08413F6-C9C0-4F47-B9EB-BA96347002D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
